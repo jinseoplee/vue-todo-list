@@ -56,15 +56,22 @@ export default {
 .todo__check {
     float: left;
     padding-right: 0.3rem;
+    width: 8%;
 }
 
 .todo__content {
-    float:left;
+    float: left;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: left;
+    width: 80%;
 }
 
 .todo__remove {
     float: right;
     cursor: pointer;
+    width: 8%;
 }
 
 .clearfix::after {

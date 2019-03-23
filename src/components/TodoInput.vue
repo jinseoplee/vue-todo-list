@@ -31,7 +31,7 @@ export default {
 </script>
 <style scope>
 .makeTodo {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
     align-items: center;
 }
 
