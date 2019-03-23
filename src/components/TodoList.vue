@@ -1,6 +1,7 @@
 <template>
     <section class="todo">
-        <ul class="todo__list">
+        <transition-group class="todo__list" name="list" tag="ul">
+        <!-- <ul class="todo__list"> -->
             <li class="todo__item clearfix" v-for="(todoItem, index) in propsdata" v-bind:key="todoItem">
                 <span class="todo__check">
                     <i class="fas fa-check" aria-hidden="true"></i>
@@ -12,7 +13,8 @@
                     <i class="far fa-trash-alt" aria-hidden="true"></i>
                 </span>
             </li>
-        </ul>
+        <!-- </ul> -->
+        </transition-group>
     </section>
 </template>
 
@@ -34,6 +36,15 @@ export default {
 
 .todo__list {
     list-style-type: none;
+}
+
+.list-enter-active, .list-leave-active {
+    transition: all 1s;
+}
+
+.list-enter, .list-leave-to {
+    opacity: 0;
+    transform: translateY(30px);
 }
 
 .todo__item {

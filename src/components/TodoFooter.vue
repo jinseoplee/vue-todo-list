@@ -23,7 +23,7 @@ export default {
     border: none;
     border-radius: 5px;
     box-shadow: 1px 1px 3px 1px #F15F5F;
-    margin: 0 auto;
+    margin: 0 auto 2rem;
     outline: none;
     cursor: pointer;
 }

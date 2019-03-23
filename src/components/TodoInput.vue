@@ -1,5 +1,6 @@
 <template>
     <div class="makeTodo">
+        <Modal v-bind:visible="visible" v-on:modalClose="modalState"></Modal>
         <input type="text" class="makeTodo__content" v-model="newTodoItem" placeholder="what do you have to do?">
         <span class="makeTodo__add" v-on:click="addTodo">
             <i class="makeTodo__addBtn fas fa-plus" aria-hidden="true"></i>
@@ -8,11 +9,16 @@
 </template>
 
 <script>
+import Modal from "./common/Modal.vue";
 export default {
     data() {
         return {
-            newTodoItem: ""
+            newTodoItem: "",
+            visible: false
         }
+    },
+    components: {
+        Modal
     },
     methods: {
         addTodo() {
@@ -20,10 +26,15 @@ export default {
                 const value = this.newTodoItem && this.newTodoItem.trim();
                 this.$emit("addTodo", value);
                 this.clearInput();
+            } else {
+                this.modalState(true);
             }
         },
         clearInput() {
             this.newTodoItem = "";
+        },
+        modalState(visible) {
+            this.visible = visible;
         }
     }
 }
