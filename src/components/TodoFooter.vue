@@ -1,19 +1,19 @@
 <template>
-    <button class="clearAll" v-on:click="clearAll">Clear All</button>
+    <button class="removeAll" v-on:click="removeAll">Clear All</button>
 </template>
 
 <script>
 export default {
     methods: {
-        clearAll() {
-            localStorage.clear();
+        removeAll() {
+            this.$emit("removeAll");
         }
     }
 }
 </script>
 
 <style>
-.clearAll {
+.removeAll {
     width: 8.5rem;
     background-color: #FF8383; 
     color: #fff;

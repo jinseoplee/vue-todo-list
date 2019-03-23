@@ -1,7 +1,7 @@
 <template>
     <section class="todo">
         <ul class="todo__list">
-            <li class="todo__item clearfix" v-for="(todoItem, index) in todoItems" v-bind:key="todoItem">
+            <li class="todo__item clearfix" v-for="(todoItem, index) in propsdata" v-bind:key="todoItem">
                 <span class="todo__check">
                     <i class="fas fa-check" aria-hidden="true"></i>
                 </span>
@@ -18,30 +18,20 @@
 
 <script>
 export default {
-    data() {
-        return {
-            todoItems: []
-        }
-    },
+    props: ["propsdata"],
     methods: {
         removeTodo(todoItem, index) {
-            localStorage.removeItem(todoItem);
-            this.todoItems.splice(index, 1);
-        }
-    },
-    created() {
-        if (localStorage.length > 0) {
-            for (let i = 0; i < localStorage.length; i++) {
-                let localKey = localStorage.key(i);
-                if (localKey === "loglevel:webpack-dev-server") continue;
-                this.todoItems.push(localStorage.key(i));
-            }
+            this.$emit("removeTodo", todoItem, index);
         }
     }
 }
 </script>
 
 <style scoped>
+.todo {
+    margin-bottom: 1.5rem;
+}
+
 .todo__list {
     list-style-type: none;
 }
