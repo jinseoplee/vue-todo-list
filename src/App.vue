@@ -66,6 +66,6 @@ body {
 }
 
 .wrap {
-  padding: 0 0.8rem;
+  padding: 0 10px;
 }
 </style>
